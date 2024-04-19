@@ -10,18 +10,11 @@ public class Demo {
         System.out.println("Hello User!");
 
         System.out.println("Enter two numbers : ");
-        int a = 0, b = 0;
-        boolean sig = true;
-        try {
-            a = sc.nextInt();
-            b = sc.nextInt();
-        }
-        catch(InputMismatchException e) {
-            System.out.println("Please enter Integer Number as Input");
-            sig = false;
-        }
 
-        if(sig) {
+        try {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+
             if (b != 0) {
                 int result = a / b;
                 System.out.println(a + "/" + b + " = " + result);
@@ -29,6 +22,10 @@ public class Demo {
                 System.out.println("Sorry you can't divide a number by zero");
             }
         }
+        catch(InputMismatchException e) {
+            System.out.println("Please enter Integer Number as Input");
+        }
+
 
         System.out.println("Anything more you want?");
 
