@@ -10,11 +10,27 @@ public class ShoppingCart {
         this.items = new ArrayList<>();
     }
 
-    public void addProduct(Product p) {
-        this.items.add(p);
+    public void addProduct(Product product) throws DuplicateProductIDException {
+        for(Product p: this.items) {
+            if(p.productId == product.productId) {
+                throw new DuplicateProductIDException("Duplicate Product ID Found!");
+            }
+        }
+        this.items.add(product);
+    }
+
+    public void deleteProduct(int id) throws ProductNotFoundException{
+        for(Product p: this.items) {
+            if(p.productId == id) {
+                this.items.remove(p);
+                return;
+            }
+        }
+        throw new ProductNotFoundException("Product doesn't exist with ID: " + id);
     }
 
     public void displayCart() {
+        System.out.println("------------------------------");
         System.out.println("Cart Info:");
         System.out.println("------------------------------");
         for(Product p: this.items) {
@@ -40,11 +56,17 @@ public class ShoppingCart {
 
         ShoppingCart s = new ShoppingCart();
 
-        s.addProduct(p1);
-        s.addProduct(p2);
-        s.addProduct(p3);
+        try {
+            s.addProduct(p1);
+            s.addProduct(p2);
+            s.addProduct(p3);
+            s.deleteProduct(1);
+            s.displayCart();
+            s.totalInfo();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-        s.displayCart();
-        s.totalInfo();
     }
 }
