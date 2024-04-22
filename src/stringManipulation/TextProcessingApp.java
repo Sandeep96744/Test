@@ -1,7 +1,7 @@
 package stringManipulation;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TextProcessingApp {
     public static void main(String[] args) {
@@ -41,13 +41,13 @@ public class TextProcessingApp {
     // Method to remove duplicate words from the text
     private static String removeDuplicates(String text) {
         String[] word = text.split(" ");
-        Set<String> set = new HashSet<>();
+        List<String> list = new ArrayList<>();
 
         StringBuilder sb = new StringBuilder();
         for(String s: word) {
-            if(!set.contains(s)) {
+            if(!list.contains(s)) {
                 sb.append(s + " ");
-                set.add(s);
+                list.add(s);
             }
         }
         return sb.toString();
