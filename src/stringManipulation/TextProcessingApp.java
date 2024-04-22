@@ -6,10 +6,10 @@ import java.util.List;
 public class TextProcessingApp {
     public static void main(String[] args) {
         String text = """
-                 Counting the number of characters, words, and lines in the text.
-                 Reversing the text.
-                 Converting the text to uppercase.
-                 Removing duplicate words from the text.
+                Counting the number of characters, words, and lines in the text.
+                Reversing the text.
+                Converting the text to uppercase.
+                Removing duplicate words from the text.
                 """;
 
         System.out.println("No. of Words: " + countWords(text));
@@ -21,7 +21,7 @@ public class TextProcessingApp {
 
     // Method to count words in the text
     private static int countWords(String text) {
-        String[] word = text.split(" ");
+        String[] word = text.split("[ .]+");
         return word.length;
     }
 
