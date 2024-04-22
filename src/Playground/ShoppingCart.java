@@ -10,7 +10,7 @@ public class ShoppingCart {
         this.items = new ArrayList<>();
     }
 
-    public void addProduct(Product product) throws DuplicateProductIDException {
+    public void addProduct(Product product) throws DuplicateProductIDException{
         for(Product p: this.items) {
             if(p.productId == product.productId) {
                 throw new DuplicateProductIDException("Duplicate Product ID Found!");
