@@ -1,5 +1,6 @@
 package Playground;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +48,48 @@ public class ShoppingCart {
         System.out.println("Total Bill Info: " + total);
     }
 
+    public void addInFile() throws IOException {
+        try(Writer write = new FileWriter("Bill.txt")) {
+            write.write("Cart Info:\n-----------------------------------");
+            double total = 0;
+            for(Product p: this.items) {
+                total += (p.price * p.quantityInStock);
+                write.append("\nID:" + p.productId + " Name:" + p.productName + " Price:" + p.price + " Quantity:" + p.quantityInStock);
+            }
+            write.write("\n-----------------------------------\nTotal Amount:" + total);
+        }
+    }
+
+    public void serialization() {
+        for(Product p: this.items) {
+            serializeObject(p);
+
+            Product product = (Product)deSerializeObject("Bill.ser");
+        }
+    }
+
+
+    public void serializeObject(Object object) {
+        try(OutputStream outputStream = new FileOutputStream("Bill.ser");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream)){
+            objectOutputStream.writeObject(object);
+        }
+        catch (IOException ex){
+            System.err.println(ex);
+        }
+
+    }
+
+    public Object deSerializeObject(String filename){
+        try(InputStream inputStream = new FileInputStream(filename);
+            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream)) {
+            return objectInputStream.readObject();
+        }
+        catch (Exception ex){
+            throw new RuntimeException(ex.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("***** Welcome to the Shopping Cart *****");
         Product p1 = new Electronics(1, "Bulb", 100.0, 2, "Philips", 1);
@@ -63,10 +106,15 @@ public class ShoppingCart {
             s.deleteProduct(1);
             s.displayCart();
             s.totalInfo();
+            s.addInFile();
+
+            s.serialization();
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
     }
+
+
 }

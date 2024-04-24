@@ -1,0 +1,6 @@
+Cart Info:
+-----------------------------------
+ID:6 Name:Iron Price:550.0 Quantity:1
+ID:101 Name:T-Shirt Price:750.0 Quantity:1
+-----------------------------------
+Total Amount:1300.0

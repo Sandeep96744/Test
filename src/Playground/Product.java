@@ -1,10 +1,13 @@
 package Playground;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     int productId;
     String productName;
     double price;
     int quantityInStock;
+    public static final int serialVersionUID = 11223344;
 
     public Product(int productId, String productName, double price, int quantityInStock) {
         this.productId = productId;
