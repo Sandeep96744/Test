@@ -31,10 +31,8 @@ public class EmailParsing {
             for (String domain : map.keySet()) {
                 List<String> list = new ArrayList<>(map.get(domain));
                 max = Math.max(list.size(), max);
-                if(i < list.size())
-                    System.out.printf("%-30s", list.get(i));
-                else
-                    System.out.printf("%-30s", " ");
+                String email = (i < list.size())? list.get(i): "";
+                System.out.printf("%-30s", email);
             }
             System.out.println();
             i++;
