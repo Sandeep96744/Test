@@ -8,13 +8,13 @@ public class Task {
     public Task(String description, int duration) {
         this.description = description;
         this.duration = duration;
-        this.status = "pending";
+        this.status = "Pending";
     }
 
     public String toString() {
         return "Task: " +
                 "Description= " + description +
                 ", Duration= " + duration + "minutes" +
-                ", Status: " + status;
+                ", Status= " + status;
     }
 }

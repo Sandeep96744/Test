@@ -19,7 +19,7 @@ public class Main {
         while(!taskQueue.isEmpty()) {
             Task task = taskQueue.poll();
             System.out.println("Processing Task: " + task.description);
-            task.status = "completed";
+            task.status = "Completed";
             System.out.println("Processed!");
             taskCompleted.push(task);
         }
