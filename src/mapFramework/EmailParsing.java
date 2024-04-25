@@ -12,18 +12,32 @@ public class EmailParsing {
 
         for(String email: emails) {
             email = email.trim();
-            String domain = email.substring(email.indexOf('@'));
+            String domain = email.substring(email.indexOf('@') + 1);
             Set<String> set = map.getOrDefault(domain, new HashSet<>());
             set.add(email);
             map.put(domain, set);
         }
 
+
         for(String domain: map.keySet()) {
-            System.out.println(domain);
-            for(String email: map.get(domain)) {
-                System.out.println(email);
+            System.out.printf("%-30s", domain);
+        }
+        System.out.println();
+        System.out.println("-".repeat(100));
+
+        int i = 0;
+        int max = 1;
+        while(i < max) {
+            for (String domain : map.keySet()) {
+                List<String> list = new ArrayList<>(map.get(domain));
+                max = Math.max(list.size(), max);
+                if(i < list.size())
+                    System.out.printf("%-30s", list.get(i));
+                else
+                    System.out.printf("%-30s", " ");
             }
             System.out.println();
+            i++;
         }
 
     }
