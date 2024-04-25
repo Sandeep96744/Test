@@ -23,7 +23,7 @@ public class EmailParsing {
             System.out.printf("%-30s", domain);
         }
         System.out.println();
-        System.out.println("-".repeat(100));
+        System.out.println("-".repeat(110));
 
         int i = 0;
         int max = 1;
@@ -39,6 +39,6 @@ public class EmailParsing {
             System.out.println();
             i++;
         }
-
+        System.out.println("-".repeat(110));
     }
 }
