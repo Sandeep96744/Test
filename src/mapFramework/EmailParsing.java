@@ -4,7 +4,7 @@ import java.util.*;
 
 public class EmailParsing {
     public static void main(String[] args) {
-        String str = "harsh@yahoo.com, karan@gmail.com, ram@yahoo.com, viswa@tech.in, viswa@tech.in, deepak@outlook.com";
+        String str = "harsh@yahoo.com, karan@gmail.com, ram@yahoo.com, viswa@tech.in, viswa@tech.in, deepak@outlook.com, dpak@outlook.com, k@outlook.com, vk@tech.in, hk@gmail.com";
 
 
         String[] emails = str.split(",");
