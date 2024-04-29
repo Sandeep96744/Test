@@ -34,7 +34,7 @@ public class Demo {
             String[] part = name.split(" ");
             StringBuilder sb = new StringBuilder();
             for(String s: part) {
-                sb.append(s.charAt(0));
+                sb.append(Character.toUpperCase(s.charAt(0)));
             }
             shortName.add(sb.toString());
         }
