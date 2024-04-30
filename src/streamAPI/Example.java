@@ -2,7 +2,9 @@ package streamAPI;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Employee {
     private int id;
@@ -70,16 +72,30 @@ public class Example {
 
         List<Employee> employees = new ArrayList<>(List.of(emp1, emp2, emp3, emp4));
 
-        int id = 103;
-        Employee emp = employees.stream().filter(e -> (e.getId() == id))
-                                         .map(e -> {
-                                             e.setSalary(e.getSalary() * 1.20);
-                                             return e; })
-                                         .findFirst().orElse(null);
+//        int id = 103;
+//        Employee emp = employees.stream().filter(e -> (e.getId() == id))
+//                                         .map(e -> {
+//                                             e.setSalary(e.getSalary() * 1.20);
+//                                             return e; })
+//                                         .findFirst().orElse(null);
+//
+//        if(emp != null) System.out.println(emp);
+//        else System.out.println("Employee Not Found...");
 
-        if(emp != null) System.out.println(emp);
+
+
+        Map<Integer, Employee> employeeMap = new HashMap<>();
+
+        employeeMap.put(emp1.getId(), emp1);
+        employeeMap.put(emp2.getId(), emp2);
+        employeeMap.put(emp3.getId(), emp3);
+        employeeMap.put(emp4.getId(), emp4);
+
+        String name = "Karan";
+        Employee employee = employeeMap.values().stream().filter(e -> e.getName().equals(name)).findFirst().orElse(null);
+
+        if(employee != null) System.out.println(employee);
         else System.out.println("Employee Not Found...");
-
 
     }
 }
