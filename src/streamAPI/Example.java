@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 class Employee {
     private int id;
@@ -68,7 +69,7 @@ public class Example {
         Employee emp1 = new Employee(101, "Harsh", 50000, LocalDate.parse("2021-01-01"));
         Employee emp2 = new Employee(102, "Karan", 45000, LocalDate.parse("2022-01-01"));
         Employee emp3 = new Employee(103, "Lokesh", 55000, LocalDate.parse("2023-01-01"));
-        Employee emp4 = new Employee(104, "Sunil", 40000, LocalDate.parse("2023-02-01"));
+        Employee emp4 = new Employee(104, "Karan", 40000, LocalDate.parse("2023-02-01"));
 
         List<Employee> employees = new ArrayList<>(List.of(emp1, emp2, emp3, emp4));
 
@@ -92,10 +93,10 @@ public class Example {
         employeeMap.put(emp4.getId(), emp4);
 
         String name = "Karan";
-        Employee employee = employeeMap.values().stream().filter(e -> e.getName().equals(name)).findFirst().orElse(null);
+        List<Employee> empList = employeeMap.values().stream().filter(e -> e.getName().equals(name)).toList();
 
-        if(employee != null) System.out.println(employee);
-        else System.out.println("Employee Not Found...");
+        if(empList.isEmpty()) System.out.println("Employee Not Found...");
 
+        for(Employee e: empList) System.out.println(e);
     }
 }
