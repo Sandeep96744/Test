@@ -1,5 +1,6 @@
 package dataStructures;
 
+
 public class QueueDemo {
     public static void main(String[] args) {
         MyQueue<String> queue = new MyQueue<>(2);
