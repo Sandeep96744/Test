@@ -1,6 +1,5 @@
 package dataStructures;
 
-import java.util.LinkedList;
 
 public class MyLinkedListDemo {
     public static void main(String[] args) {
@@ -14,14 +13,12 @@ public class MyLinkedListDemo {
         list.insertFirst(5);
 
 
-        list.deleteFirst();
-        list.deleteFirst();
 
-//
-//        list.deleteLast();
-//        list.deleteLast();
-//        list.deleteLast();
-//        list.deleteLast();
+
+        list.deleteLast();
+        list.deleteLast();
+        list.deleteLast();
+        list.deleteLast();
 
         list.displayList();
     }

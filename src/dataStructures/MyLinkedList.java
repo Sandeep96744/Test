@@ -25,6 +25,7 @@ public class MyLinkedList<Type> {
             last = node;
         }
         else {
+            node.prev = last;
             last.next = node;
             last = node;
         }
@@ -38,34 +39,45 @@ public class MyLinkedList<Type> {
             last = node;
         }
         else {
+            first.prev = node;
             node.next = first;
             first = node;
         }
     }
 
     public Type deleteLast() {
+        if(isEmpty()) {
+            throw new RuntimeException("LinkedList is already Empty");
+        }
+
         Type data = (Type) last.data;
         if(first == last)  {
             first = last = null;
             return data;
         }
 
-        Node curr = first;
-        while (curr.next.next != null) {
-            curr = curr.next;
-        }
-        last = curr;
-        curr.next = null;
+        last = last.prev;
+        last.next = null;
 
         return data;
     }
 
     public Type deleteFirst() {
+
+        if(isEmpty()) {
+            throw new RuntimeException("LinkedList is already Empty");
+        }
+
         if(first.next == null) {
             last = null;
         }
         Type data = (Type) first.data;
         first = first.next;
+
+        if(first != null) {
+            first.prev = null;
+        }
+
         return data;
     }
 
