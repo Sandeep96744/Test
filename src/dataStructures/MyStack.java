@@ -29,7 +29,10 @@ public class MyStack<Type> {
         return data;
     }
 
-    public Type peek(){
+    public Type peek() {
+        if(isEmpty()){
+            throw new RuntimeException("Stack is Empty!");
+        }
         return stackArray[top];
     }
 

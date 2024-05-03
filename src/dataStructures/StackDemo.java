@@ -6,6 +6,7 @@ public class StackDemo {
         stk.push("Hello");
         stk.push("Java");
 
-        System.out.println(stk.peek());
+        System.out.println(stk.pop());
+        System.out.println(stk.pop());
     }
 }
