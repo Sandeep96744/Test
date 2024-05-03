@@ -1,17 +1,17 @@
 package dataStructures;
 
-public class MyStack<T> {
-    private int maxSize;
-    private T[] stackArray;
+public class MyStack<Type> {
+    private final int maxSize;
+    private Type[] stackArray;
     private int top;
 
     public MyStack(int maxSize){
         this.maxSize=maxSize;
-        stackArray = (T[]) new Object[maxSize];
+        stackArray = (Type[]) new Object[maxSize];
         top = -1;
     }
 
-    public T push(T data){
+    public Type push(Type data){
         if(isFull()){
             throw new RuntimeException("Stack is already full");
         }
@@ -20,16 +20,16 @@ public class MyStack<T> {
         return data;
     }
 
-    public T pop(){
+    public Type pop(){
         if(isEmpty()){
             throw new RuntimeException("Stack is already empty");
         }
-        T data = stackArray[top];
+        Type data = stackArray[top];
         top--;
         return data;
     }
 
-    public T peek(){
+    public Type peek(){
         return stackArray[top];
     }
 
