@@ -15,7 +15,7 @@ public class MyLinkedListDemo {
 
 
 
-        list.deleteLast();
+        list.deleteFirst();
         list.deleteLast();
         list.deleteLast();
         list.deleteLast();

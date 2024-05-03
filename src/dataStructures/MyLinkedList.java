@@ -1,24 +1,24 @@
 package dataStructures;
 
 public class MyLinkedList<Type> {
-    private Node first;
-    private Node last;
+    private Node<Type> first;
+    private Node<Type> last;
 
     public MyLinkedList() {
         first = null;
         last = null;
     }
 
-    public Node getFirst() {
+    public Node<Type> getFirst() {
         return first;
     }
 
-    public Node getLast() {
+    public Node<Type> getLast() {
         return last;
     }
 
     public void insertLast(Type data) {
-        Node node = new Node(data);
+        Node<Type> node = new Node<>(data);
 
         if(isEmpty()) {
             first = node;
@@ -32,7 +32,7 @@ public class MyLinkedList<Type> {
     }
 
     public void insertFirst(Type data) {
-        Node node = new Node(data);
+        Node<Type> node = new Node<>(data);
 
         if(isEmpty()) {
             first = node;
@@ -86,7 +86,7 @@ public class MyLinkedList<Type> {
     }
 
     public void displayList() {
-        Node curr = first;
+        Node<Type> curr = first;
         while(curr != null) {
             System.out.println(curr.data);
             curr = curr.next;
